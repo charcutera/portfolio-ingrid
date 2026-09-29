@@ -354,7 +354,25 @@ const PROJECT_TRANSLATIONS: Record<Language, Record<string, ProjectTextOverrides
     },
 
     /* ──────────────────────────────────────────────────────────────────────────
-       6. Cortometraje de Acción 2026
+       6. Concurso de Cortometrajes — Carteles Universitarios
+    ────────────────────────────────────────────────────────────────────────── */
+    "short-film-contest": {
+      title: "Concurso de Cortometrajes — Carteles Universitarios",
+      shortDescription:
+        "Serie de carteles promocionales diseñados para el certamen anual de cortometrajes universitarios en el CITM (UPC), exhibidos en la web oficial y canales del campus.",
+      fullDescription:
+        "Diseñados para el certamen de cortometrajes celebrado en el CITM (UPC Terrassa), este proyecto consta de dos carteles oficiales concebidos para representar el festival e impulsar la participación estudiantil. Las obras—representando 'Nexum' y 'Subjecte 204'—fueron publicadas en la página web oficial de la universidad y sus plataformas institucionales para dar difusión y visibilidad al talento cinematográfico del campus.",
+      client: "CITM — UPC",
+      productionTime: "2 semanas",
+      tags: ["Diseño de Cartel", "Cartel Cinematográfico", "Diseño Gráfico", "Key Visual", "Impresión y Digital"],
+      mediaCaptions: {
+        0: "Nexum (A New Directions Film) — Cartel oficial con iluminación cálida cinematográfica, atmósfera íntima y créditos del equipo.",
+        1: "Subjecte 204 (The Managers Short Film) — Cartel de thriller psicológico de alto contraste con composición de foco circular carmesí.",
+      },
+    },
+
+    /* ──────────────────────────────────────────────────────────────────────────
+       7. Cortometraje de Acción 2026
     ────────────────────────────────────────────────────────────────────────── */
     "accio-2026": {
       title: "Cortometraje de Acción 2026",
@@ -670,7 +688,25 @@ const PROJECT_TRANSLATIONS: Record<Language, Record<string, ProjectTextOverrides
     },
 
     /* ──────────────────────────────────────────────────────────────────────────
-       6. Curtmetratge d'Acció 2026
+       6. Concurs de Curtmetratges — Cartells Universitaris
+    ────────────────────────────────────────────────────────────────────────── */
+    "short-film-contest": {
+      title: "Concurs de Curtmetratges — Cartells Universitaris",
+      shortDescription:
+        "Sèrie de cartells promocionals dissenyats per al certamen anual de curtmetratges universitaris al CITM (UPC), exhibits al web oficial i als canals del campus.",
+      fullDescription:
+        "Creats per al certamen de curtmetratges organitzat al CITM (UPC Terrassa), aquest projecte consta de dos cartells oficials concebuts per representar el festival i impulsar la participació estudiantil. Les obres—representant 'Nexum' i 'Subjecte 204'—van ser publicades a la pàgina web oficial de la universitat i a les seves plataformes institucionals per donar visibilitat i difusió al talent cinematogràfic del campus.",
+      client: "CITM — UPC",
+      productionTime: "2 setmanes",
+      tags: ["Disseny de Cartell", "Cartell Cinematogràfic", "Disseny Gràfic", "Key Visual", "Impressió i Digital"],
+      mediaCaptions: {
+        0: "Nexum (A New Directions Film) — Cartell oficial amb il·luminació càlida cinematogràfica, atmosfera íntima i crèdits de l'equip.",
+        1: "Subjecte 204 (The Managers Short Film) — Cartell de thriller psicològic d'alt contrast amb composició de focus circular carmesí.",
+      },
+    },
+
+    /* ──────────────────────────────────────────────────────────────────────────
+       7. Curtmetratge d'Acció 2026
     ────────────────────────────────────────────────────────────────────────── */
     "accio-2026": {
       title: "Curtmetratge d'Acció 2026",

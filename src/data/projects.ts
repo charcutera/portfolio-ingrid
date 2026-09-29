@@ -408,7 +408,40 @@ export const SAMPLE_PROJECTS: Project[] = [
   },
 
   /* ──────────────────────────────────────────────────────────────────────────
-     6. Real Short Films — Video & Photography
+     6. Short Film Festival — University Posters (Graphic Design)
+  ────────────────────────────────────────────────────────────────────────── */
+  {
+    id: "short-film-contest",
+    title: "Short Film Contest — Official Posters",
+    category: "graphic-design",
+    shortDescription:
+      "Promotional poster series designed for the university short film contest at CITM (UPC), featured on the institution's official website and campus channels.",
+    fullDescription:
+      "Created for the university short film festival organized at CITM (UPC Terrassa), this project features two official promotional posters designed to represent the contest and drive student submissions. The visual pieces—representing 'Nexum' and 'Subjecte 204'—were prominently showcased across the university's official website and campus promotional platforms to celebrate and spotlight student cinematic work.",
+    coverImage: "/projects/short-film-contest/short_film_header.png",
+    coverAspectRatio: "16/9",
+    year: "2025",
+    client: "CITM — UPC",
+    productionTime: "2 weeks",
+    tags: ["Poster Design", "Film Posters", "Graphic Design", "Key Visual", "Print & Digital"],
+    mediaAssets: [
+      {
+        type: "image",
+        url: "/projects/short-film-contest/short_left.png",
+        caption: "Nexum (A New Directions Film) — Official poster featuring warm cinematic lighting, intimate atmosphere, and cast credits.",
+        aspectRatio: "3/4",
+      },
+      {
+        type: "image",
+        url: "/projects/short-film-contest/short_right.jpg",
+        caption: "Subjecte 204 (The Managers Short Film) — High-contrast psychological thriller poster with crimson circular spotlight composition.",
+        aspectRatio: "3/4",
+      },
+    ],
+  },
+
+  /* ──────────────────────────────────────────────────────────────────────────
+     7. Real Short Films — Video & Photography
   ────────────────────────────────────────────────────────────────────────── */
   {
     id: "accio-2026",
