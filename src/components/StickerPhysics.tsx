@@ -50,7 +50,8 @@ export default function StickerPhysics() {
   const containerRef  = useRef<HTMLDivElement>(null);
   const engineRef     = useRef<unknown>(null);
   const runnerRef     = useRef<unknown>(null);
-  const bodiesRef     = useRef<{ position: { x: number; y: number }; angle: number }[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const bodiesRef     = useRef<any[]>([]);
   const rafRef        = useRef<number>(0);
   const lastWidthRef  = useRef<number>(0);
 
@@ -223,15 +224,17 @@ export default function StickerPhysics() {
 
       /* ── Mouse constraint (drag & selective touch) ── */
       const mouse = Mouse.create(containerRef.current);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const mouseAny = mouse as any;
       const noop = () => {};
       mouse.element.removeEventListener("wheel", (mouse as unknown as Record<string, EventListener>)["mousewheel"] ?? noop);
       mouse.element.removeEventListener("mousewheel", (mouse as unknown as Record<string, EventListener>)["_mousewheel"] ?? noop);
       mouse.element.removeEventListener("DOMMouseScroll", (mouse as unknown as Record<string, EventListener>)["_mousewheel"] ?? noop);
 
       // Detach Matter's default aggressive touch listeners which block normal page scroll on mobile
-      mouse.element.removeEventListener("touchstart", mouse.mousedown);
-      mouse.element.removeEventListener("touchmove", mouse.mousemove);
-      mouse.element.removeEventListener("touchend", mouse.mouseup);
+      mouse.element.removeEventListener("touchstart", mouseAny.mousedown);
+      mouse.element.removeEventListener("touchmove", mouseAny.mousemove);
+      mouse.element.removeEventListener("touchend", mouseAny.mouseup);
 
       // Targeted touch handling:
       // - Touching empty space does NOT intercept or preventDefault -> page scrolls natively!
@@ -253,7 +256,7 @@ export default function StickerPhysics() {
         if (hits.length > 0) {
           activeTouchId = touch.identifier;
           e.preventDefault();
-          mouse.mousedown(e);
+          mouseAny.mousedown(e);
           mouse.position.x = touchX;
           mouse.position.y = touchY;
         }
@@ -266,7 +269,7 @@ export default function StickerPhysics() {
           const t = e.changedTouches[i];
           if (t.identifier === activeTouchId) {
             e.preventDefault();
-            mouse.mousemove(e);
+            mouseAny.mousemove(e);
             const rect = containerRef.current.getBoundingClientRect();
             mouse.position.x = t.clientX - rect.left;
             mouse.position.y = t.clientY - rect.top;
@@ -280,7 +283,7 @@ export default function StickerPhysics() {
 
         for (let i = 0; i < e.changedTouches.length; i++) {
           if (e.changedTouches[i].identifier === activeTouchId) {
-            mouse.mouseup(e);
+            mouseAny.mouseup(e);
             activeTouchId = null;
             break;
           }
@@ -292,7 +295,7 @@ export default function StickerPhysics() {
 
         for (let i = 0; i < e.changedTouches.length; i++) {
           if (e.changedTouches[i].identifier === activeTouchId) {
-            mouse.mouseup(e);
+            mouseAny.mouseup(e);
             activeTouchId = null;
             break;
           }
