@@ -69,8 +69,11 @@ export default function StickerPhysics() {
 
     let stopped = false;
 
+    let removeTouchListeners = () => {};
+
     const cleanup = async () => {
       cancelAnimationFrame(rafRef.current);
+      removeTouchListeners();
       try {
         if (runnerRef.current) {
           const { Runner } = await import("matter-js");
@@ -218,11 +221,96 @@ export default function StickerPhysics() {
         });
       });
 
-      /* ── Mouse constraint (drag & touch) ── */
+      /* ── Mouse constraint (drag & selective touch) ── */
       const mouse = Mouse.create(containerRef.current);
       const noop = () => {};
+      mouse.element.removeEventListener("wheel", (mouse as unknown as Record<string, EventListener>)["mousewheel"] ?? noop);
       mouse.element.removeEventListener("mousewheel", (mouse as unknown as Record<string, EventListener>)["_mousewheel"] ?? noop);
       mouse.element.removeEventListener("DOMMouseScroll", (mouse as unknown as Record<string, EventListener>)["_mousewheel"] ?? noop);
+
+      // Detach Matter's default aggressive touch listeners which block normal page scroll on mobile
+      mouse.element.removeEventListener("touchstart", mouse.mousedown);
+      mouse.element.removeEventListener("touchmove", mouse.mousemove);
+      mouse.element.removeEventListener("touchend", mouse.mouseup);
+
+      // Targeted touch handling:
+      // - Touching empty space does NOT intercept or preventDefault -> page scrolls natively!
+      // - Touching directly on a sticker locks onto it and drags it with physics.
+      let activeTouchId: number | null = null;
+
+      const handleTouchStart = (e: TouchEvent) => {
+        if (!containerRef.current || bodiesRef.current.length === 0) return;
+        if (activeTouchId !== null) return;
+
+        const touch = e.changedTouches[0];
+        if (!touch) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+        const touchX = touch.clientX - rect.left;
+        const touchY = touch.clientY - rect.top;
+
+        const hits = Matter.Query.point(bodiesRef.current, { x: touchX, y: touchY });
+        if (hits.length > 0) {
+          activeTouchId = touch.identifier;
+          e.preventDefault();
+          mouse.mousedown(e);
+          mouse.position.x = touchX;
+          mouse.position.y = touchY;
+        }
+      };
+
+      const handleTouchMove = (e: TouchEvent) => {
+        if (activeTouchId === null || !containerRef.current) return;
+
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          const t = e.changedTouches[i];
+          if (t.identifier === activeTouchId) {
+            e.preventDefault();
+            mouse.mousemove(e);
+            const rect = containerRef.current.getBoundingClientRect();
+            mouse.position.x = t.clientX - rect.left;
+            mouse.position.y = t.clientY - rect.top;
+            break;
+          }
+        }
+      };
+
+      const handleTouchEnd = (e: TouchEvent) => {
+        if (activeTouchId === null) return;
+
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === activeTouchId) {
+            mouse.mouseup(e);
+            activeTouchId = null;
+            break;
+          }
+        }
+      };
+
+      const handleTouchCancel = (e: TouchEvent) => {
+        if (activeTouchId === null) return;
+
+        for (let i = 0; i < e.changedTouches.length; i++) {
+          if (e.changedTouches[i].identifier === activeTouchId) {
+            mouse.mouseup(e);
+            activeTouchId = null;
+            break;
+          }
+        }
+      };
+
+      const el = containerRef.current;
+      el.addEventListener("touchstart", handleTouchStart, { passive: false });
+      el.addEventListener("touchmove", handleTouchMove, { passive: false });
+      el.addEventListener("touchend", handleTouchEnd, { passive: false });
+      el.addEventListener("touchcancel", handleTouchCancel, { passive: false });
+
+      removeTouchListeners = () => {
+        el.removeEventListener("touchstart", handleTouchStart);
+        el.removeEventListener("touchmove", handleTouchMove);
+        el.removeEventListener("touchend", handleTouchEnd);
+        el.removeEventListener("touchcancel", handleTouchCancel);
+      };
 
       const mc = MouseConstraint.create(engine, {
         mouse,
@@ -325,7 +413,7 @@ export default function StickerPhysics() {
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="absolute inset-0 overflow-hidden select-none touch-none"
+      className="absolute inset-0 overflow-hidden select-none touch-pan-y"
       style={{
         cursor: isDragging ? "grabbing" : isHoveringSticker ? "grab" : "default",
       }}
@@ -370,8 +458,6 @@ export default function StickerPhysics() {
             </div>
           );
         })}
-      {/* Transparent overlay so mouse & touch events reach Matter even over the images */}
-      <div className="absolute inset-0 z-10" />
     </div>
   );
 }
