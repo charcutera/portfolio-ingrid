@@ -452,7 +452,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     fullDescription:
       "Curtmetratge d'acció premiat amb el Millor Curtmetratge a la convocatòria del 2026. Realitzat conjuntament per Ingrid Lara, Sergi Font, Cristina Moles i Aura Espí.",
     coverImage:
-      "https://img.youtube.com/vi/b6fj1AUs3Jk/hqdefault.jpg",
+      "/projects/accio-2026/cover.jpg",
     year: "2026",
     client: "CITM — UPC",
     timeframe: "2026",
@@ -463,7 +463,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     mediaAssets: [
       {
         type: "image",
-        url: "https://img.youtube.com/vi/b6fj1AUs3Jk/hqdefault.jpg",
+        url: "/projects/accio-2026/cover.jpg",
       },
     ],
   },
@@ -476,7 +476,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     fullDescription:
       "Curtmetratge d'acció de temàtica Malentès premiat amb el Premi a la Millor Postproducció a la convocatòria del 2025. Realitzat per Ingrid Lara, Javi Vida i Cristina Moles.",
     coverImage:
-      "https://img.youtube.com/vi/ay1zWRt5WLI/hqdefault.jpg",
+      "/projects/accio-2025/cover.jpg",
     year: "2025",
     client: "CITM — UPC",
     timeframe: "2025",
@@ -486,7 +486,7 @@ export const SAMPLE_PROJECTS: Project[] = [
     mediaAssets: [
       {
         type: "image",
-        url: "https://img.youtube.com/vi/ay1zWRt5WLI/hqdefault.jpg",
+        url: "/projects/accio-2025/cover.jpg",
       },
     ],
   },
