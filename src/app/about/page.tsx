@@ -11,8 +11,8 @@ import {
   IllustratorIcon,
   PhotoshopIcon,
   DaVinciIcon,
-  FramerIcon,
   BlenderIcon,
+  UnityIcon,
   FrontendIcon,
 } from "@/components/ui/software-icons";
 
@@ -23,10 +23,8 @@ const TOOL_ICONS: Record<string, React.ReactNode> = {
   "Adobe Illustrator": <IllustratorIcon className="w-7 h-7" />,
   "Adobe Photoshop": <PhotoshopIcon className="w-7 h-7" />,
   "DaVinci Resolve": <DaVinciIcon className="w-7 h-7" />,
-  "Cinema 4D & Blender": <BlenderIcon className="w-7 h-7" />,
-  "Cinema 4D y Blender": <BlenderIcon className="w-7 h-7" />,
-  "Cinema 4D i Blender": <BlenderIcon className="w-7 h-7" />,
-  "Framer / Webflow": <FramerIcon className="w-7 h-7 text-neutral-900" />,
+  Blender: <BlenderIcon className="w-7 h-7" />,
+  Unity: <UnityIcon className="w-7 h-7 text-neutral-900" />,
 };
 
 export default function AboutPage() {
