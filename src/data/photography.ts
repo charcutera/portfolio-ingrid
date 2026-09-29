@@ -1,0 +1,136 @@
+import { PhotoItem } from "@/types/project";
+
+export const SAMPLE_PHOTOGRAPHY: PhotoItem[] = [
+  {
+    id: "photo-1",
+    title: "Photography 01",
+    url: "/photography/302DA1AA-137E-41E9-8EB9-E4C16F235EE5_1_201_a.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-2",
+    title: "Photography 02",
+    url: "/photography/43346B77-873A-4244-AFE7-271BC95C8B15_1_102_a.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-3",
+    title: "Photography 03",
+    url: "/photography/74F540F2-8F6A-435D-8437-71391963AF22_1_201_a.jpg",
+    aspectRatio: "3/4",
+  },
+  {
+    id: "photo-4",
+    title: "Photography 04",
+    url: "/photography/9D59D266-721C-4F5A-94F7-3191AC63F467_1_201_a.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-5",
+    title: "Photography 05",
+    url: "/photography/FAF0FD2A-5A41-4CB2-84D1-CB0FA53CE230_1_102_a.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-6",
+    title: "Photography 06",
+    url: "/photography/laland%20practiac_page-0001.jpg",
+    aspectRatio: "16/9",
+  },
+  {
+    id: "photo-7",
+    title: "Photography 07",
+    url: "/photography/laland%20practiac_page-0003.jpg",
+    aspectRatio: "16/9",
+  },
+  {
+    id: "photo-8",
+    title: "Photography 08",
+    url: "/photography/P1080489.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-9",
+    title: "Photography 09",
+    url: "/photography/P1080492.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-10",
+    title: "Photography 10",
+    url: "/photography/P1080511.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-11",
+    title: "Photography 11",
+    url: "/photography/P1080519.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-12",
+    title: "Photography 12",
+    url: "/photography/P1080523.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-13",
+    title: "Photography 13",
+    url: "/photography/P1080528.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-14",
+    title: "Photography 14",
+    url: "/photography/P1080531.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-15",
+    title: "Photography 15",
+    url: "/photography/P1080533.jpg",
+    aspectRatio: "3/4",
+  },
+  {
+    id: "photo-16",
+    title: "Photography 16",
+    url: "/photography/P1080537.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-17",
+    title: "Photography 17",
+    url: "/photography/P1080541.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-18",
+    title: "Photography 18",
+    url: "/photography/P1080549.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-19",
+    title: "Photography 19",
+    url: "/photography/P1080598.jpg",
+    aspectRatio: "3/4",
+  },
+  {
+    id: "photo-20",
+    title: "Photography 20",
+    url: "/photography/P1080605.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-21",
+    title: "Photography 21",
+    url: "/photography/P1080621.jpg",
+    aspectRatio: "4/3",
+  },
+  {
+    id: "photo-22",
+    title: "Photography 22",
+    url: "/photography/P1080734.jpg",
+    aspectRatio: "4/3",
+  },
+];
