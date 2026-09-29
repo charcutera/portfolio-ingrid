@@ -113,24 +113,6 @@ export default function ContactPage() {
                     <span>LinkedIn</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-1 hover:text-neutral-950 transition-colors"
-                  >
-                    <span>Instagram</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                  <a
-                    href="https://behance.net"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-1 hover:text-neutral-950 transition-colors"
-                  >
-                    <span>Behance</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
                 </div>
 
                 {/* Email directly underneath */}

@@ -262,14 +262,26 @@ export default function HomePage() {
                     e.currentTarget.style.borderColor = "rgba(229,229,229,0.8)";
                   }}
                 >
-                  {/* Top: emoji glyph + label */}
+                  {/* Top: icon glyph + label */}
                   <div className="space-y-5">
                     <span
-                      className="text-2xl transition-colors select-none leading-none block"
+                      className="transition-colors select-none leading-none block"
                       style={{ color: d.color }}
                       aria-hidden
                     >
-                      {d.emoji}
+                      {d.slug === "video" ? (
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M6 4.5v15l13.5-7.5L6 4.5z" />
+                        </svg>
+                      ) : d.slug === "ux-ui" ? (
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M12 2.5L21.5 12 12 21.5 2.5 12Z" />
+                        </svg>
+                      ) : (
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C12 6.627 17.373 12 24 12C17.373 12 12 17.373 12 24C12 17.373 6.627 12 0 12C6.627 12 12 6.627 12 0Z" />
+                        </svg>
+                      )}
                     </span>
                     <h3 className="font-sans font-bold uppercase tracking-wider text-lg sm:text-xl text-neutral-950">
                       {d.label}
@@ -314,9 +326,9 @@ export default function HomePage() {
           </h2>
           <Link
             href="/about"
-            className="group inline-flex items-center gap-1 text-sm font-medium text-neutral-400 hover:text-neutral-900 transition-colors"
+            className="group inline-flex items-center gap-0.5 text-sm font-medium text-neutral-400 hover:text-neutral-900 transition-colors shrink-0"
           >
-            {t.home.fullBio}
+            <span>{t.home.fullBio}</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </motion.div>

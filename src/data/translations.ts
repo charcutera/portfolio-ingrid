@@ -473,7 +473,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       disciplinesHeading: "Disciplinas",
       browseWorks: "Explorar obras",
       experienceHeading: "Experiencia",
-      fullBio: "Bio completa",
+      fullBio: "Bio",
       disciplines: [
         {
           slug: "ux-ui",
@@ -752,7 +752,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
       disciplinesHeading: "Disciplines",
       browseWorks: "Explorar obres",
       experienceHeading: "Experiència",
-      fullBio: "Bio completa",
+      fullBio: "Bio",
       disciplines: [
         {
           slug: "ux-ui",
